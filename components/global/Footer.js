@@ -1,7 +1,7 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import HomeScreen from '../../screens/HomeScreen';
-import SettingsScreen from '../../screens/SettingsScreen';
-import ExploreScreen from '../../screens/ExploreScreen';
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import HomeScreen from "../../screens/HomeScreen";
+import SettingsScreen from "../../screens/SettingsScreen";
+import ExploreScreen from "../../screens/ExploreScreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -11,6 +11,6 @@ export default function Footer() {
       {/* <Tab.Screen name="Home" component={HomeScreen} /> */}
       {/* <Tab.Screen name="Explore" component={ExploreScreen} /> 
       <Tab.Screen name="Settings" component={SettingsScreen} /> */}
-    </Tab.Navigator> 
+    </Tab.Navigator>
   );
 }

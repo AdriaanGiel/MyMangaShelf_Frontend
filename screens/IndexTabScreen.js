@@ -11,30 +11,43 @@ import { ThemeContext } from "../context/Context";
 import { UserMediaProvider } from "../context/UserMediaListProvider";
 
 /**
- * 
+ *
  * @returns Screens that use the tab layout
  */
 export default function IndexTabScreen() {
   const Tab = createBottomTabNavigator();
   const [appTheme, setAppTheme] = useContext(ThemeContext);
   const getColor = GetColors;
-  const greon = getColor.getHexColor('dark-greon',appTheme);
+  const greon = getColor.getHexColor("dark-greon", appTheme);
 
   const TabStyling = {
     tabBarStyle: {
-        backgroundColor: getColor.getHexColor('dark-card',appTheme)
-    }, 
-    headerShown: false
-}
+      backgroundColor: getColor.getHexColor("dark-card", appTheme),
+    },
+    headerShown: false,
+  };
 
   return (
-    <Tab.Navigator screenOptions={{
-        tabBarActiveTintColor: getColor.getHexColor('dark-greon',appTheme),
-        tabBarInactiveTintColor: getColor.getHexColor('dark-neutral-text',appTheme),
-    }} >
-      <Tab.Screen name="List"  component={HomeScreen} options={{...TabStyling,tabBarIcon: () => <BookOpenText color={greon} /> }}/> 
-      <Tab.Screen name="Explore" component={ExploreScreen} options={{...TabStyling,tabBarIcon: () => <Compass color={greon} /> }}/> 
-      <Tab.Screen name="AddSource" component={AddProviderScreen} options={{...TabStyling, tabBarIcon: () => <SquarePlus  color={greon} /> }} /> 
+    <Tab.Navigator
+      screenOptions={{
+        tabBarActiveTintColor: getColor.getHexColor("dark-greon", appTheme),
+        tabBarInactiveTintColor: getColor.getHexColor("dark-neutral-text", appTheme),
+      }}>
+      <Tab.Screen
+        name="List"
+        component={HomeScreen}
+        options={{ ...TabStyling, tabBarIcon: () => <BookOpenText color={greon} /> }}
+      />
+      <Tab.Screen
+        name="Explore"
+        component={ExploreScreen}
+        options={{ ...TabStyling, tabBarIcon: () => <Compass color={greon} /> }}
+      />
+      <Tab.Screen
+        name="AddSource"
+        component={AddProviderScreen}
+        options={{ ...TabStyling, tabBarIcon: () => <SquarePlus color={greon} /> }}
+      />
     </Tab.Navigator>
   );
-} 
+}

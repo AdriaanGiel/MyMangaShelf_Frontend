@@ -1,0 +1,7 @@
+{
+  "printWidth": 100,
+  "tabWidth": 2,
+  "dou": true,
+  "jsxBracketSameLine": true,
+  "trailingComma": "es5"
+}

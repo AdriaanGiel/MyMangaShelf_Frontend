@@ -1,29 +1,25 @@
-import {useContext, useEffect, useState} from "react";
-import {Pressable, Text, TextInput, View, KeyboardAvoidingView} from "react-native";
+import { useContext, useEffect, useState } from "react";
+import { Pressable, Text, TextInput, View, KeyboardAvoidingView } from "react-native";
 import GetColors from "../helpers/getColors";
-import {ThemeContext} from "../context/Context";
+import { ThemeContext } from "../context/Context";
 
 /**
  *
  * @returns Register screen
  */
 export default function ProfileScreen() {
+  const [registerForm, setRegisterForm] = useState({
+    username: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
 
-    const [registerForm, setRegisterForm] = useState({
-        username: "",
-        email: "",
-        password:"",
-        confirmPassword:""
-    })
+  useEffect(() => {}, []);
 
-    useEffect(() => {
-        
-        
-    },[])
-
-    return (
-        <View>
-            <Text>PROFILE</Text>
-        </View>
-    );
+  return (
+    <View>
+      <Text>PROFILE</Text>
+    </View>
+  );
 }

@@ -1,15 +1,17 @@
-import {createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 export const MediaContext = createContext();
 
-export const MediaDetailProvider = ({children}) => {
+export const MediaDetailProvider = ({ children }) => {
+  const [mediaDetail, setMediaDetail] = useState(null);
 
-    const [mediaDetail,setMediaDetail] = useState(null)
-
-    return <MediaContext.Provider value={{ 
+  return (
+    <MediaContext.Provider
+      value={{
         mediaDetail,
-        setMediaDetail
-     }}>
-        {children}
+        setMediaDetail,
+      }}>
+      {children}
     </MediaContext.Provider>
-}
+  );
+};
