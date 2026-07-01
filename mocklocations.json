@@ -1,0 +1,284 @@
+[
+  {
+    "name": "Rotterdam Central Station",
+    "latitude": 51.9244,
+    "longitude": 4.4687,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Markthal",
+    "latitude": 51.9206,
+    "longitude": 4.4860,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Cube Houses",
+    "latitude": 51.9202,
+    "longitude": 4.4885,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Erasmus Bridge",
+    "latitude": 51.9090,
+    "longitude": 4.4841,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Euromast",
+    "latitude": 51.9057,
+    "longitude": 4.4668,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Museum Boijmans Van Beuningen",
+    "latitude": 51.9143,
+    "longitude": 4.4711,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Depot Boijmans Van Beuningen",
+    "latitude": 51.9147,
+    "longitude": 4.4728,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Maritime Museum",
+    "latitude": 51.9188,
+    "longitude": 4.4814,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Witte de Withstraat",
+    "latitude": 51.9169,
+    "longitude": 4.4748,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Delfshaven",
+    "latitude": 51.9096,
+    "longitude": 4.4453,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Hotel New York",
+    "latitude": 51.9047,
+    "longitude": 4.4906,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "SS Rotterdam",
+    "latitude": 51.8994,
+    "longitude": 4.4820,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Kralingse Bos",
+    "latitude": 51.9289,
+    "longitude": 4.5238,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Kralingse Plas",
+    "latitude": 51.9280,
+    "longitude": 4.5195,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Rotterdam Zoo",
+    "latitude": 51.9272,
+    "longitude": 4.4468,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Miniworld Rotterdam",
+    "latitude": 51.9235,
+    "longitude": 4.4660,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Het Park",
+    "latitude": 51.9077,
+    "longitude": 4.4695,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Fenix Food Factory",
+    "latitude": 51.9062,
+    "longitude": 4.4954,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Katendrecht",
+    "latitude": 51.9027,
+    "longitude": 4.4928,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Kop van Zuid",
+    "latitude": 51.9078,
+    "longitude": 4.4887,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Ahoy Rotterdam",
+    "latitude": 51.8820,
+    "longitude": 4.4883,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Zuiderpark",
+    "latitude": 51.8864,
+    "longitude": 4.4981,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Eendrachtsplein",
+    "latitude": 51.9161,
+    "longitude": 4.4731,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Blaak Station",
+    "latitude": 51.9207,
+    "longitude": 4.4878,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "North Sea Jazz Festival Grounds",
+    "latitude": 51.8823,
+    "longitude": 4.4886,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  
+  {
+    "name": "Feyenoord Stadium (De Kuip)",
+    "latitude": 51.8938,
+    "longitude": 4.5230,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Afrikaandermarkt",
+    "latitude": 51.8996,
+    "longitude": 4.4988,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Nassauhaven",
+    "latitude": 51.9137,
+    "longitude": 4.5008,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Nassauhavenpark",
+    "latitude": 51.9130,
+    "longitude": 4.5018,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Feijenoordkade",
+    "latitude": 51.9121,
+    "longitude": 4.4979,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Persoonshaven",
+    "latitude": 51.9087,
+    "longitude": 4.5031,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Afrikaanderplein",
+    "latitude": 51.8998,
+    "longitude": 4.4992,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Rotterdam Zuid Station",
+    "latitude": 51.8992,
+    "longitude": 4.5048,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Maashaven Metro Station",
+    "latitude": 51.8973,
+    "longitude": 4.4929,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Rijnhaven",
+    "latitude": 51.9032,
+    "longitude": 4.4915,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Holland Amerikaplein",
+    "latitude": 51.9052,
+    "longitude": 4.4898,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Hotel New York",
+    "latitude": 51.9047,
+    "longitude": 4.4906,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Fenix Food Factory",
+    "latitude": 51.9062,
+    "longitude": 4.4954,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Deliplein",
+    "latitude": 51.9025,
+    "longitude": 4.4947,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  },
+  {
+    "name": "Katendrecht Peninsula",
+    "latitude": 51.9015,
+    "longitude": 4.4968,
+    "latitudeDelta": 0.05,
+    "longitudeDelta": 0.05
+  }
+
+]
