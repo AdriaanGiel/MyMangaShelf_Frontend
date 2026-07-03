@@ -11,9 +11,8 @@ export const AuthProvider = ({ children }) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   const logoutUser = async () => {
-    //  SecureStore.deleteItemAsync('user');
-    //  setUser(null);
     setIsLoading(true);
+
     try {
       AxiosInstance.defaults.headers.common["Authorization"] = `Bearer ${user.token}`;
 
@@ -31,11 +30,10 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (email, password) => {
     setIsLoading(true);
+
     // TODO CREATE LOGIN HELPER WTITH TRY CATCH
     try {
       const response = await AxiosInstance.post("/login", { email, password });
-
-      console.log(response);
 
       const userData = {
         token: response.data.token,
@@ -43,6 +41,7 @@ export const AuthProvider = ({ children }) => {
         email: response.data.user.email,
         name: response.data.user.name,
       };
+      console.log("gcgcch");
 
       setUser(userData);
       setErrorMessage(null);
@@ -52,7 +51,6 @@ export const AuthProvider = ({ children }) => {
       console.log(error.response.data.message);
       setErrorMessage(error.response.data.message);
       setIsLoading(false);
-      Hpflj3xf;
     }
   };
 

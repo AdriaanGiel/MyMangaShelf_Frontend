@@ -27,7 +27,7 @@ export default {
    */
   async addData(name, value) {
     try {
-      await AsyncStorage.setItem(name, JSON.stringify(value));
+      return await AsyncStorage.setItem(name, JSON.stringify(value));
     } catch (e) {
       // saving error
       console.log(e.message);
