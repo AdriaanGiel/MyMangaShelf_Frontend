@@ -8,8 +8,8 @@ export default function IsLoading({ state, children }) {
   if (state) {
     return (
       <View
-        className={`${getColors.getThemeString("bg-dark-background", appTheme)} h-full flex justify-center items-center`}>
-        <ActivityIndicator size={50} color={getColors.getHexColor("dark-greon", appTheme)} />
+        className={`${appTheme ? "bg-dark-background" : "bg-light-background"} h-full flex justify-center items-center`}>
+        <ActivityIndicator size={50} color={getColors.getHexColor("dark-greon")} />
       </View>
     );
   }

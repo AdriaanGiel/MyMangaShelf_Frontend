@@ -10,21 +10,60 @@ import IsLoading from "../../components/global/IsLoading";
 import { randomUUID } from "expo-crypto";
 import TouchableView from "../../components/global/TouchableView";
 import { ReadingSpotsContext } from "../../context/ReadingSpotsContext";
+import { useTranslation } from "react-i18next";
 
 export default function AddSpotScreen() {
   const [appTheme] = useContext(ThemeContext);
   const { setReadingSpots, spotToEdit, location } = useContext(ReadingSpotsContext);
   const [formData, setFormData] = useState({ name: "", note: "" });
   const [validationMessage, setValidationMessage] = useState();
+  const { t } = useTranslation();
 
   // console.log(spotToEdit);
-  console.log("formData:", formData);
-
   const Navigation = useNavigation();
   const isFocused = useIsFocused();
 
-  const checkDisabled = () => {
-    return formData.name.length > 3;
+  const submitReadingSpot = () => {
+    if (spotToEdit) {
+      editReadingSpot();
+    } else {
+      submitNewReadingSpot();
+    }
+  };
+
+  const editReadingSpot = async () => {
+    let items = await Storage.getData("user_spots");
+
+    spotToEdit.name = formData.name;
+    spotToEdit.note = formData.note;
+
+    const newList = items.filter((spot) => {
+      return spot.id !== spotToEdit.id;
+    });
+
+    await Storage.addData("user_spots", [...newList, spotToEdit]);
+
+    showAlert(t("readingSpot.SpotEdited"));
+  };
+
+  const showAlert = (message) => {
+    Alert.alert(message, "", [
+      {
+        text: "OK",
+        onPress: () => {
+          resetForm();
+          Navigation.navigate(t("readingSpot.mySpots"));
+        },
+      },
+    ]);
+  };
+
+  const resetForm = () => {
+    setFormData({
+      name: "",
+      location: {},
+      note: "",
+    });
   };
 
   const submitNewReadingSpot = async () => {
@@ -35,7 +74,7 @@ export default function AddSpotScreen() {
     }
 
     if (formData.name.trim() === "" || formData.note.trim() === "") {
-      setValidationMessage("You need to enter a name and a note");
+      setValidationMessage(t("readingSpot.validationMessage"));
       return;
     }
 
@@ -55,20 +94,7 @@ export default function AddSpotScreen() {
 
     setReadingSpots(updatedList);
 
-    Alert.alert("New spot added", "", [
-      {
-        text: "OK",
-        onPress: () => {
-          Navigation.navigate("my spots");
-        },
-      },
-    ]);
-
-    setFormData({
-      name: "",
-      location: {},
-      note: "",
-    });
+    showAlert(t("readingSpot.newSpotAdded"));
   };
 
   const handleChange = (prop, val) => {
@@ -97,18 +123,6 @@ export default function AddSpotScreen() {
       <TouchableView>
         <View
           className={`flex h-[100%]  py-4 gap-4  px-2 ${getColors.getThemeString("bg-dark-background", appTheme)}`}>
-          {/* <GeneralCard custom={
-        `${appTheme ? "bg-white" : "bg-gray-900"} h-[40%] w-[95%] gap-4 min-h-20 py-4 relative px-2 justify-center items-center`}>
-            
-         <CameraView ref={cameraRef} style={StyleSheet.absoluteFillObject} facing={facing}>
-         </CameraView>
-         
-        <Pressable onPress={takePicture} className="flex flex-row gap-2 bg-dark-greon p-2 rounded" > 
-                    <Text className={`${appTheme? 'text-light-standard-text': 'text-white'}`}>{ picture ? "Retake" : "Take a picture" }</Text> 
-                    <Camera color={appTheme ? 'black': 'white'} /> 
-                </Pressable>      
-    </GeneralCard> */}
-
           <View className="w-full flex items-center">
             <GeneralCard
               custom={`${appTheme ? "bg-white" : "bg-gray-900"} w-[95%] gap-4 min-h-20 py-4 px-2 items-center`}>
@@ -122,7 +136,7 @@ export default function AddSpotScreen() {
                     ? getColors.getHexColor("text-light-standard-text")
                     : getColors.getHexColor("color-white")
                 }
-                placeholder="New reading spot"
+                placeholder={t("readingSpot.newSpot")}
                 className={`${appTheme ? "text-light-standard-text" : "color-white bg-black"} border w-[90%] rounded-md`}
                 onChangeText={(value) => handleChange("name", value)}
                 value={formData.name}
@@ -145,16 +159,11 @@ export default function AddSpotScreen() {
                 className={`${appTheme ? "text-light-standard-text" : "color-white bg-black"} border h-40 w-[90%] rounded-md`}
               />
 
-              {/* <View>
-
-                { picture ? <Image className="h-40 w-60" source={{ uri: picture }} /> : <Images color={getColors.getHexColor('dark-greon')} /> }
-
-            </View> */}
               {validationMessage ? <Text className="text-red-700">{validationMessage}</Text> : null}
               <Pressable
-                onPress={submitNewReadingSpot}
+                onPress={submitReadingSpot}
                 className={`${appTheme ? "text-light-standard-text" : "text-white"} rounded bg-dark-greon p-2 flex items-center w-[33%]`}>
-                <Text>Submit</Text>
+                <Text>{t("common.save")}</Text>
               </Pressable>
             </GeneralCard>
           </View>

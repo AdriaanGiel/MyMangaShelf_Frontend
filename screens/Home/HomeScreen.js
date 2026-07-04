@@ -5,11 +5,12 @@ import UserMediaList from "./components/UserMediaList";
 import MediaResource from "../../resources/MediaResource";
 import MediaListResource from "../../resources/MediaListResource";
 import FilterTab from "./components/FilterTab";
-import { Loader2 } from "lucide-react-native";
 import ShelfStorage from "../../helpers/Storage";
 import GetColors from "../../helpers/getColors";
 import { ThemeContext } from "../../context/Context";
 import { AuthContext } from "../../context/AuthProvider";
+import { useTranslation } from "react-i18next";
+import colors from "tailwindcss/colors";
 
 /**
  *
@@ -27,6 +28,7 @@ export default function HomeScreen() {
   const getColors = GetColors;
   const [appTheme, setAppTheme] = useContext(ThemeContext);
   const { user, listChange, setListChange } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   /**
    * Function to update search value
@@ -93,7 +95,7 @@ export default function HomeScreen() {
         <View className="flex justify-center items-center">
           <Text
             className={`text-4xl ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
-            Your list is empty!
+            {t("library.emptyList")}
           </Text>
         </View>
       );
@@ -127,12 +129,13 @@ export default function HomeScreen() {
   return (
     <ScrollView
       className={`flex  flex-1 gap-5  py-2 ${getColors.getThemeString("bg-dark-background", appTheme)}`}>
-      <Text className={`text-6xl ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
-        My Library
+      <Text
+        className={`text-6xl px-2 py-4 ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
+        {t("library.title")}
       </Text>
 
       <SearchBar
-        placeholder="Search your favorites"
+        placeholder={t("library.searchFavorites")}
         onChangeText={updateSearch}
         value={search}
         containerStyle={{
@@ -142,7 +145,7 @@ export default function HomeScreen() {
           borderBottomWidth: 0,
         }}
         inputContainerStyle={{
-          backgroundColor: getColors.getHexColor("dark-input", appTheme),
+          backgroundColor: getColors.getHexColor("dark-card", appTheme),
         }}
       />
 

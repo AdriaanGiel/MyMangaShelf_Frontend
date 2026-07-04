@@ -10,6 +10,7 @@ import { ArrowLeft, Menu } from "lucide-react-native";
 import getColors from "../../helpers/getColors";
 import { ThemeContext } from "../../context/Context";
 import { UserMediaContext, UserMediaProvider } from "../../context/UserMediaListProvider";
+import { useTranslation } from "react-i18next";
 
 /**
  *
@@ -18,6 +19,7 @@ import { UserMediaContext, UserMediaProvider } from "../../context/UserMediaList
 export default function BaseStack({ changeButtons }) {
   const Stack = createStackNavigator();
   const Navigation = useNavigation();
+  const { t } = useTranslation();
   const [appTheme, setAppTheme] = useContext(ThemeContext);
 
   const showBackButton = () => {};

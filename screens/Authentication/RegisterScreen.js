@@ -4,6 +4,7 @@ import GetColors from "../../helpers/getColors";
 import { ThemeContext } from "../../context/Context";
 import { AuthContext } from "../../context/AuthProvider";
 import { useNavigation } from "@react-navigation/core";
+import { useTranslation } from "react-i18next";
 
 /**
  *
@@ -16,6 +17,8 @@ export default function RegisterScreen() {
     password: "",
     confirm_password: "",
   });
+  const { t } = useTranslation();
+
   const [appTheme, setAppTheme] = useContext(ThemeContext);
   const getColors = GetColors;
   const { registerUser, errorMessage, setErrorMessage } = useContext(AuthContext);
@@ -27,7 +30,7 @@ export default function RegisterScreen() {
 
   const handeleRegisteringUser = () => {
     registerUser(formData, (value) => {
-      Alert.alert("Your account has been created");
+      Alert.alert(t("auth.accountCreated"));
       setErrorMessage(null);
       Navigation.navigate("login_screen");
     });
@@ -40,7 +43,7 @@ export default function RegisterScreen() {
         className={`w-{90%} rounded-lg py-8 px-4 flex gap-4 ${getColors.getThemeString("bg-dark-card ", appTheme)}`}>
         <Text
           className={`self-center text-4xl py-2 ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
-          Register
+          {t("auth.register")}
         </Text>
         {errorMessage ? <Text className="self-center text-red-500">{errorMessage}</Text> : null}
         <TextInput
@@ -48,7 +51,7 @@ export default function RegisterScreen() {
           onChangeText={(value) => handleLoginForm("name", value)}
           value={formData.name}
           keyboardType="text"
-          placeholder="Username"
+          placeholder={t("auth.username")}
         />
 
         <TextInput
@@ -64,7 +67,7 @@ export default function RegisterScreen() {
           onChangeText={(value) => handleLoginForm("password", value)}
           value={formData.password}
           secureTextEntry={true}
-          placeholder="Password"
+          placeholder={t("auth.password")}
         />
 
         <TextInput
@@ -72,7 +75,7 @@ export default function RegisterScreen() {
           onChangeText={(value) => handleLoginForm("confirm_password", value)}
           value={formData.confirm_password}
           secureTextEntry={true}
-          placeholder="Confirm password"
+          placeholder={t("auth.confirmPassword")}
         />
 
         <Pressable
@@ -80,7 +83,7 @@ export default function RegisterScreen() {
           onPress={handeleRegisteringUser}>
           <Text
             className={`text-3xl rounded-xl px-2 py-2 ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
-            Register
+            {t("auth.register")}
           </Text>
         </Pressable>
       </View>

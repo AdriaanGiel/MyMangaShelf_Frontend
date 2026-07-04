@@ -8,6 +8,7 @@ import MySpotScreen from "../ReadingSpot/MySpotScreen";
 import AddSpotScreen from "../ReadingSpot/AddSpotScreen";
 import { ThemeContext } from "../../context/Context";
 import { ReadingSpotsProvider } from "../../context/ReadingSpotsContext";
+import { useTranslation } from "react-i18next";
 
 /**
  *
@@ -16,6 +17,7 @@ import { ReadingSpotsProvider } from "../../context/ReadingSpotsContext";
 export default function ReadingSpotStack() {
   const Tab = createBottomTabNavigator();
   const [appTheme] = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   const greon = getColors.getHexColor("dark-greon");
 
@@ -34,17 +36,17 @@ export default function ReadingSpotStack() {
           tabBarInactiveTintColor: getColors.getHexColor("dark-neutral-text", appTheme),
         }}>
         <Tab.Screen
-          name="reading spots"
+          name={t("navigation.readingSpots")}
           component={ReadingSpot}
           options={{ ...TabStyling, tabBarIcon: () => <Map color={greon} /> }}
         />
         <Tab.Screen
-          name="my spots"
+          name={t("readingSpot.mySpots")}
           component={MySpotScreen}
           options={{ ...TabStyling, tabBarIcon: () => <MapPinned color={greon} /> }}
         />
         <Tab.Screen
-          name="add spot"
+          name={t("readingSpot.addSpot")}
           component={AddSpotScreen}
           options={{ ...TabStyling, tabBarIcon: () => <MapPinPlus color={greon} /> }}
         />

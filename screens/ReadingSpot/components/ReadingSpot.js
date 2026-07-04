@@ -6,12 +6,18 @@ import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../../context/Context";
 import { Image } from "react-native-elements";
 import Storage from "../../../helpers/Storage";
+import { useTranslation } from "react-i18next";
 
 export default function ReadingSpot({ spot, readingSpotAction, rating }) {
   const [appTheme] = useContext(ThemeContext);
+  const { t } = useTranslation();
 
   const [thumbs, setThumbs] = useState();
 
+  /**
+   * Function to save likes and dislikes to storage
+   * @param {string} rating
+   */
   const saveToStorage = async (rating) => {
     let ratings = await Storage.getData("spot_ratings");
 
@@ -24,18 +30,22 @@ export default function ReadingSpot({ spot, readingSpotAction, rating }) {
     await Storage.addData("spot_ratings", ratings);
   };
 
+  /**
+   * Function to set Thumbs of a spot
+   * @param {string} thumb
+   */
   const toggleThumbs = async (thumb) => {
     setThumbs(thumb);
+
     if (thumbs === thumb) {
       setThumbs("");
+      thumb = "";
     }
 
     await saveToStorage(thumb);
   };
 
   useEffect(() => {
-    // console.log(rating);
-
     if (rating !== null || rating !== undefined) {
       setThumbs(rating);
     }
@@ -56,7 +66,7 @@ export default function ReadingSpot({ spot, readingSpotAction, rating }) {
           <View className="w-[60%] px-2">
             <Text
               className={`truncate text-2xl ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
-              {spot?.name ?? "Spot name"}
+              {spot?.name ?? t("readingSpot.spotName")}
             </Text>
             <MapIcon color={getColors.getHexColor("dark-greon")}></MapIcon>
           </View>

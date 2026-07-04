@@ -13,6 +13,7 @@ import ThemeToggleButton from "../../components/global/ThemeToggleButton";
 import { AuthContext } from "../../context/AuthProvider";
 import ProfileScreen from "../Authentication/ProfileScreen";
 import LogoutScreen from "../Authentication/LogoutScreen";
+import { useTranslation } from "react-i18next";
 
 /**
  *
@@ -23,6 +24,7 @@ export default function DrawerStack() {
   const getColors = GetColors;
   const [appTheme, setAppTheme] = useContext(ThemeContext);
   const { user } = useContext(AuthContext);
+  const { t } = useTranslation();
 
   const HeaderStyle = {
     headerStyle: {
@@ -73,17 +75,35 @@ export default function DrawerStack() {
           backgroundColor: getColors.getHexColor("dark-background", appTheme),
         },
       }}>
-      <Drawer.Screen options={HeaderStyle} name="My Library" component={BaseStack} />
+      <Drawer.Screen options={HeaderStyle} name={t("navigation.library")} component={BaseStack} />
 
-      <Drawer.Screen options={HeaderStyle} name="Reading Spots" component={ReadingSpotStack} />
+      <Drawer.Screen
+        options={HeaderStyle}
+        name={t("navigation.readingSpots")}
+        component={ReadingSpotStack}
+      />
 
       {user ? (
-        <Drawer.Screen options={HeaderStyle} name="Profile" component={ProfileScreen} />
+        <Drawer.Screen
+          options={HeaderStyle}
+          name={t("navigation.profile")}
+          component={ProfileScreen}
+        />
       ) : (
-        <Drawer.Screen options={HeaderStyle} name="Login" component={AuthStack} />
+        <Drawer.Screen options={HeaderStyle} name={t("auth.login")} component={AuthStack} />
       )}
-      <Drawer.Screen options={HeaderStyle} name="Settings" component={SettingsScreen} />
-      {user ? <Drawer.Screen options={HeaderStyle} name="Logout" component={LogoutScreen} /> : null}
+      <Drawer.Screen
+        options={HeaderStyle}
+        name={t("navigation.settings")}
+        component={SettingsScreen}
+      />
+      {user ? (
+        <Drawer.Screen
+          options={HeaderStyle}
+          name={t("navigation.logout")}
+          component={LogoutScreen}
+        />
+      ) : null}
     </Drawer.Navigator>
   );
 }

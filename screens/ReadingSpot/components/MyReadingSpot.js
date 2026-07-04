@@ -3,12 +3,17 @@ import Card from "../../../components/global/Card";
 import getColors from "../../../helpers/getColors";
 import { Delete, Edit, MapIcon, Share } from "lucide-react-native";
 import { useContext, useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/core";
+
 import { ThemeContext } from "../../../context/Context";
 import { Image } from "react-native-elements";
 import MangaText from "../../../components/global/MangaText";
+import { useTranslation } from "react-i18next";
 
 export default function MyReadingSpot({ spot, deleteSpot, editSpot }) {
   const [appTheme] = useContext(ThemeContext);
+  const { t } = useTranslation();
+  const navigation = useNavigation();
 
   const editReadingSpot = () => {
     editSpot();
@@ -33,10 +38,13 @@ export default function MyReadingSpot({ spot, deleteSpot, editSpot }) {
     }
   };
 
+  const showOnMap = () => {
+    navigation.navigate(t("navigation.readingSpots"), { spot });
+  };
+
   const remove = () => {
     // Storage.removeItem("user_spots");
     deleteSpot();
-    console.log("delete");
   };
 
   const shareSpot = () => {
@@ -60,16 +68,19 @@ export default function MyReadingSpot({ spot, deleteSpot, editSpot }) {
               }}></Image>
           </View>
           <View className="w-[60%] px-2">
-            <Text
-              className={`truncate text-2xl ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
-              {spot?.name ?? "Spot name"}
-            </Text>
+            <Pressable onPress={showOnMap}>
+              <Text
+                className={`truncate text-2xl ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
+                {spot?.name ?? t("readingSpot.spotName")}
+              </Text>
+            </Pressable>
+
             <MapIcon color={getColors.getHexColor("dark-greon")}></MapIcon>
           </View>
         </View>
         <View className="h-14 w-14 flex flex-row gap-5 justify-center items-center rounded-md">
           <Pressable onPress={shareSpot} className="flex flex-row gap-3">
-            <Text className="text-dark-greon">Share</Text>
+            <Text className="text-dark-greon">{t("readingSpot.shareSpot")}</Text>
             <Share color={getColors.getHexColor("dark-greon")} />
           </Pressable>
         </View>

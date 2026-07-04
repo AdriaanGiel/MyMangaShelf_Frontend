@@ -4,6 +4,7 @@ import { useNavigation } from "@react-navigation/core";
 import { ThemeContext } from "../../context/Context";
 import GetColors from "../../helpers/getColors";
 import { AuthContext } from "../../context/AuthProvider";
+import { useTranslation } from "react-i18next";
 
 /**
  *
@@ -12,6 +13,7 @@ import { AuthContext } from "../../context/AuthProvider";
 export default function LoginScreen() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { t } = useTranslation();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -31,7 +33,7 @@ export default function LoginScreen() {
    */
   const login = () => {
     if (formData.email === "" || formData.password === "") {
-      return setErrorMessage("Missing fields");
+      return setErrorMessage(t("auth.missingFields"));
     }
 
     loginUser(formData.email, formData.password);
@@ -59,7 +61,7 @@ export default function LoginScreen() {
         className={`${getColors.getThemeString("bg-dark-card", appTheme)} w-{90%} shadow-sm rounded-lg py-8 px-4 flex gap-4`}>
         <Text
           className={`self-center text-4xl py-2 ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
-          Login
+          {t("auth.login")}
         </Text>
 
         <TextInput
@@ -77,7 +79,8 @@ export default function LoginScreen() {
           onChangeText={(value) => handleLoginForm("password", value)}
           value={formData.password}
           secureTextEntry={true}
-          placeholder="Password"
+          placeholder={t("auth.password")}
+          autoCapitalize="none"
         />
 
         <View className="flex gap-4">
@@ -86,7 +89,7 @@ export default function LoginScreen() {
             onPress={login}>
             <Text
               className={`text-3xl srounded-xl px-2 py-2 ${getColors.getThemeString("text-dark-standard-text", appTheme)}`}>
-              Login
+              {t("auth.login")}
             </Text>
           </Pressable>
           <>
@@ -94,18 +97,18 @@ export default function LoginScreen() {
           </>
           <Text
             className={`self-center ${getColors.getThemeString("text-dark-neutral-text", appTheme)}`}>
-            No account yet?
+            {t("auth.noAccount")}
             <Text
               onPress={goToRegisterScreen}
               className={`${getColors.getThemeString("text-dark-greon", appTheme)}`}>
-              &nbsp;Register&nbsp;
+              &nbsp;{t("auth.register")}&nbsp;
             </Text>
-            now.
+            {t("auth.now")}.
           </Text>
           <Text
             onPress={goToForgotPasswordScreen}
             className={`self-center ${getColors.getThemeString("text-dark-greon", appTheme)}`}>
-            Forgot Password?
+            {t("auth.forgotPassword")}
           </Text>
         </View>
       </View>

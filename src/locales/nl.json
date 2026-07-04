@@ -1,0 +1,74 @@
+{
+  "common": {
+    "save": "Opslaan",
+    "cancel": "Annuleren",
+    "delete": "Verwijderen",
+    "close": "Sluiten",
+    "loading": "Laden...",
+    "error": "Er is iets misgegaan",
+    "noInternet": "Geen internetverbinding"
+  },
+
+  "navigation": {
+    "home": "Home",
+    "explore": "Ontdekken",
+    "library": "Mijn Bibliotheek",
+    "settings": "Instellingen",
+    "profile": "Profiel",
+    "logout": "Uitloggen",
+    "readingSpots": "Leeslocaties",
+    "list": "lijst"
+  },
+
+  "auth": {
+    "login": "Inloggen",
+    "register": "Registreren",
+    "forgotPassword": "Wachtwoord vergeten",
+    "username": "Gebruikersnaam",
+    "email": "E-mail",
+    "password": "Wachtwoord",
+    "confirmPassword": "Bevestig wachtwoord",
+    "noAccount": "Nog geen account?",
+    "createAccount": "Account aanmaken",
+    "accountCreated": "Je account is aangemaakt",
+    "missingFields": "Ontbrekende velden",
+    "now": "nu"
+  },
+
+  "library": {
+    "title": "Mijn Bibliotheek",
+    "searchComics": "Zoek manga",
+    "searchFavorites": "Zoek in favorieten",
+    "emptyList": "Je lijst is leeg"
+  },
+
+  "detail": {
+    "currentStatus": "Huidige status",
+    "currentSource": "Huidige bron",
+    "chapters": "Hoofdstukken",
+    "synopsis": "Samenvatting"
+  },
+
+  "providers": {
+    "addSource": "Bron toevoegen",
+    "newSourceAdded": "Nieuwe bron toegevoegd",
+    "provider": "Bron"
+  },
+
+  "readingSpot": {
+    "title": "Leeslocaties",
+    "readingSpot": "Leeslocatie",
+    "addSpot": "Locatie toevoegen",
+    "mySpots": "Mijn locaties",
+    "newSpot": "Nieuwe leeslocatie",
+    "spotName": "Naam van locatie",
+    "spotNote": "Notitie",
+    "takePicture": "Foto maken",
+    "retakePicture": "Opnieuw maken",
+    "newSpotAdded": "Nieuwe locatie toegevoegd",
+    "SpotEdited": "Locatie aangepast",
+    "locationRequired": "Selecteer een locatie",
+    "validationMessage": "You need to enter a name and a note",
+    "shareSpot": "delen"
+  }
+}

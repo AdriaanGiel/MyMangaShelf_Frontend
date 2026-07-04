@@ -1,18 +1,18 @@
-import { FlatList, Platform, Pressable, Share, Text, View } from "react-native";
+import { Text, View } from "react-native";
 import getColors from "../../helpers/getColors";
-import { useCallback, useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeContext } from "../../context/Context";
-import ReadingSpot from "./components/ReadingSpot";
 import { ScrollView } from "react-native-gesture-handler";
-import { CustomFlatList } from "../../components/global/CustomFlatList";
-import { useFocusEffect, useNavigation, useRoute } from "@react-navigation/core";
+import { useNavigation } from "@react-navigation/core";
 import Storage from "../../helpers/Storage";
 import IsLoading from "../../components/global/IsLoading";
 import MyReadingSpot from "./components/MyReadingSpot";
 import { ReadingSpotsContext } from "../../context/ReadingSpotsContext";
+import { useTranslation } from "react-i18next";
 
 export default function MySpotScreen() {
   const [appTheme] = useContext(ThemeContext);
+  const { t } = useTranslation();
   const { readingSpots, setReadingSpots, setSpotToEdit } = useContext(ReadingSpotsContext);
 
   const Navigation = useNavigation();
@@ -55,7 +55,7 @@ export default function MySpotScreen() {
         spot={spot}
         editSpot={() => {
           setSpotToEdit(readingSpots.find((s) => s.id === spot.id));
-          Navigation.navigate("add spot");
+          Navigation.navigate(t("readingSpot.addSpot"));
         }}
         deleteSpot={() => deleteLocation(spot.id)}></MyReadingSpot>
     ));

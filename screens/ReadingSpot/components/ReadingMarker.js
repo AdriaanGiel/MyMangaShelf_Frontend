@@ -1,7 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { Image } from "react-native-elements";
 import { Marker } from "react-native-maps";
 
 export default function ReadingMarker({ location, onMarkerPress }) {
+  const { t } = useTranslation();
   return (
     <Marker
       coordinate={{
@@ -9,7 +11,7 @@ export default function ReadingMarker({ location, onMarkerPress }) {
         longitude: location.longitude,
       }}
       title={location.name}
-      description="Reading spot"
+      description={t("readingSpot.spotName")}
       onPress={() =>
         onMarkerPress({
           latitude: location.latitude,

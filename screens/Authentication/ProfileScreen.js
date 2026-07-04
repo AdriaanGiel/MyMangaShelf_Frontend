@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Pressable, Text, TextInput, View, KeyboardAvoidingView } from "react-native";
 import GetColors from "../../helpers/getColors";
 import { ThemeContext } from "../../context/Context";
+import { useTranslation } from "react-i18next";
 
 /**
  *
@@ -15,11 +16,13 @@ export default function ProfileScreen() {
     confirmPassword: "",
   });
 
+  const { t } = useTranslation();
+
   useEffect(() => {}, []);
 
   return (
     <View>
-      <Text>PROFILE</Text>
+      <Text>{t("auth.profile")}</Text>
     </View>
   );
 }

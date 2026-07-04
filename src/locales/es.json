@@ -1,0 +1,74 @@
+{
+  "common": {
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "close": "Cerrar",
+    "loading": "Cargando...",
+    "error": "Algo salió mal",
+    "noInternet": "Sin conexión a Internet"
+  },
+
+  "navigation": {
+    "home": "Inicio",
+    "explore": "Explorar",
+    "library": "Mi Biblioteca",
+    "settings": "Configuración",
+    "profile": "Perfil",
+    "logout": "Cerrar sesión",
+    "readingSpots": "Lugares de lectura",
+    "list": "lista"
+  },
+
+  "auth": {
+    "login": "Iniciar sesión",
+    "register": "Registrarse",
+    "forgotPassword": "Olvidé mi contraseña",
+    "username": "Nombre de usuario",
+    "email": "Correo electrónico",
+    "password": "Contraseña",
+    "confirmPassword": "Confirmar contraseña",
+    "noAccount": "¿Aún no tienes una cuenta?",
+    "createAccount": "Crear cuenta",
+    "accountCreated": "Tu cuenta ha sido creada",
+    "missingFields": "Faltan campos obligatorios",
+    "now": "awo"
+  },
+
+  "library": {
+    "title": "Mi Biblioteca",
+    "searchComics": "Buscar mangas",
+    "searchFavorites": "Buscar en favoritos",
+    "emptyList": "Tu lista está vacía"
+  },
+
+  "detail": {
+    "currentStatus": "Estado actual",
+    "currentSource": "Fuente actual",
+    "chapters": "Capítulos",
+    "synopsis": "Sinopsis"
+  },
+
+  "providers": {
+    "addSource": "Agregar fuente",
+    "newSourceAdded": "Nueva fuente agregada",
+    "provider": "Fuente"
+  },
+
+  "readingSpot": {
+    "title": "Lugares de lectura",
+    "readingSpot": "Lugar de lectura",
+    "addSpot": "Agregar lugar",
+    "mySpots": "Mis lugares",
+    "newSpot": "Nuevo lugar de lectura",
+    "spotName": "Nombre del lugar",
+    "spotNote": "Nota",
+    "takePicture": "Tomar una foto",
+    "retakePicture": "Volver a tomar",
+    "newSpotAdded": "Nuevo lugar agregado",
+    "SpotEdited": "Spot editado",
+    "locationRequired": "Seleccione una ubicación",
+    "validationMessage": "You need to enter a name and a note",
+    "shareSpot": "compartir"
+  }
+}

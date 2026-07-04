@@ -9,6 +9,7 @@ import GetColors from "../../helpers/getColors";
 import { useContext } from "react";
 import { ThemeContext } from "../../context/Context";
 import { UserMediaProvider } from "../../context/UserMediaListProvider";
+import { useTranslation } from "react-i18next";
 
 /**
  *
@@ -19,6 +20,7 @@ export default function IndexTabScreen() {
   const [appTheme, setAppTheme] = useContext(ThemeContext);
   const getColor = GetColors;
   const greon = getColor.getHexColor("dark-greon", appTheme);
+  const { t } = useTranslation();
 
   const TabStyling = {
     tabBarStyle: {
@@ -34,17 +36,17 @@ export default function IndexTabScreen() {
         tabBarInactiveTintColor: getColor.getHexColor("dark-neutral-text", appTheme),
       }}>
       <Tab.Screen
-        name="List"
+        name={t("navigation.list")}
         component={HomeScreen}
         options={{ ...TabStyling, tabBarIcon: () => <BookOpenText color={greon} /> }}
       />
       <Tab.Screen
-        name="Explore"
+        name={t("navigation.explore")}
         component={ExploreScreen}
         options={{ ...TabStyling, tabBarIcon: () => <Compass color={greon} /> }}
       />
       <Tab.Screen
-        name="AddSource"
+        name={t("providers.addSource")}
         component={AddProviderScreen}
         options={{ ...TabStyling, tabBarIcon: () => <SquarePlus color={greon} /> }}
       />

@@ -1,0 +1,74 @@
+{
+  "common": {
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "close": "Close",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "noInternet": "No internet connection"
+  },
+
+  "navigation": {
+    "home": "Home",
+    "explore": "Explore",
+    "library": "My Library",
+    "settings": "Settings",
+    "profile": "Profile",
+    "logout": "Logout",
+    "readingSpots": "Reading Spots",
+    "list": "list"
+  },
+
+  "auth": {
+    "login": "Login",
+    "register": "Register",
+    "forgotPassword": "Forgot Password",
+    "username": "Username",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "noAccount": "No account yet?",
+    "createAccount": "Create Account",
+    "accountCreated": "Your account has been created",
+    "missingFields": "Missing fields",
+    "now": "now"
+  },
+
+  "library": {
+    "title": "My Library",
+    "searchComics": "Search comics",
+    "searchFavorites": "Search your favorites",
+    "emptyList": "Your list is empty"
+  },
+
+  "detail": {
+    "currentStatus": "Current Status",
+    "currentSource": "Current Source",
+    "chapters": "Chapters",
+    "synopsis": "Synopsis"
+  },
+
+  "providers": {
+    "addSource": "Add Source",
+    "newSourceAdded": "New source added",
+    "provider": "Provider"
+  },
+
+  "readingSpot": {
+    "title": "Reading Spots",
+    "readingSpot": "Reading Spot",
+    "addSpot": "Add Spot",
+    "mySpots": "My Spots",
+    "newSpot": "New Reading Spot",
+    "spotName": "Spot Name",
+    "spotNote": "Spot Note",
+    "takePicture": "Take a Picture",
+    "retakePicture": "Retake",
+    "newSpotAdded": "New spot added",
+    "SpotEdited": "Spot Edited",
+    "locationRequired": "Please select a location",
+    "validationMessage": "You need to enter a name and a note",
+    "shareSpot": "share"
+  }
+}

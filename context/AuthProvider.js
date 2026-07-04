@@ -30,7 +30,6 @@ export const AuthProvider = ({ children }) => {
 
   const loginUser = async (email, password) => {
     setIsLoading(true);
-
     // TODO CREATE LOGIN HELPER WTITH TRY CATCH
     try {
       const response = await AxiosInstance.post("/login", { email, password });
@@ -41,7 +40,6 @@ export const AuthProvider = ({ children }) => {
         email: response.data.user.email,
         name: response.data.user.name,
       };
-      console.log("gcgcch");
 
       setUser(userData);
       setErrorMessage(null);

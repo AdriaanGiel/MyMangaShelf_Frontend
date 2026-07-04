@@ -1,13 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import {
-  Pressable,
-  Text,
-  TextInput,
-  View,
-  KeyboardAvoidingView,
-  ActivityIndicator,
-} from "react-native";
-import GetColors from "../../helpers/getColors";
+import { useContext, useEffect } from "react";
+import { View, ActivityIndicator } from "react-native";
 import { ThemeContext } from "../../context/Context";
 import getColors from "../../helpers/getColors";
 import { AuthContext } from "../../context/AuthProvider";

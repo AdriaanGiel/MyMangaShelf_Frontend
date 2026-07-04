@@ -1,6 +1,6 @@
 import { View, Text, Platform } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/core";
-import MapView, { Marker } from "react-native-maps";
+import MapView, { LocalTile, Marker } from "react-native-maps";
 import getColors from "../../helpers/getColors";
 import { useContext, useEffect, useRef, useState } from "react";
 import { ThemeContext } from "../../context/Context";
@@ -12,8 +12,10 @@ import ReadingMarker from "./components/ReadingMarker";
 import { CustomFlatList } from "../../components/global/CustomFlatList";
 import MapViewDirections from "react-native-maps-directions";
 import Storage from "../../helpers/Storage";
+
 import NetInfo from "@react-native-community/netinfo";
 import { ReadingSpotsContext } from "../../context/ReadingSpotsContext";
+import { useTranslation } from "react-i18next";
 
 // import {GoogleMaps, AppleMaps} from "expo-maps";
 
@@ -30,7 +32,14 @@ export default function ReadingSpotScreen() {
   const [destination, setDestination] = useState();
   const [connection, setConnection] = useState(true);
   const Route = useRoute();
+  const { t } = useTranslation();
+  const Navigation = useNavigation();
 
+  const localTiles = "../../assets";
+
+  /**
+   * Initial region to show on map
+   */
   const rotterdam = {
     latitude: 51.9244,
     longitude: 4.4777,
@@ -38,6 +47,10 @@ export default function ReadingSpotScreen() {
     longitudeDelta: 0.03,
   };
 
+  /**
+   * Function to show readingspot on the map when pressed
+   * @param {object} spot
+   */
   const handleSpotPress = (spot) => {
     setNewDestination({ latitude: spot.latitude, longitude: spot.longitude });
 
@@ -52,6 +65,11 @@ export default function ReadingSpotScreen() {
     });
   };
 
+  /**
+   * Function to check if there is a internet connection, and determine how to fetch the reading spots
+   * @param {function} callback
+   * @param {function} secondCallback
+   */
   const checkIfInternetConnection = async (callback, secondCallback) => {
     const connection = await NetInfo.fetch();
 
@@ -64,6 +82,10 @@ export default function ReadingSpotScreen() {
     }
   };
 
+  /**
+   * Function to show a list of reading spots, when loaded.
+   * @returns loader || A list of reading spots
+   */
   const LoadingReadingSpots = () => {
     if (!locations) {
       return (
@@ -91,6 +113,9 @@ export default function ReadingSpotScreen() {
     );
   };
 
+  /**
+   * Function to get reading spots from local storage, incase there is no internet connection.
+   */
   const getReadingLocationsFromStorage = async () => {
     let readingSpots = await Storage.getData("reading_spots");
 
@@ -101,10 +126,18 @@ export default function ReadingSpotScreen() {
     setLocations(readingSpots);
   };
 
+  /**
+   * Function to set a new destination on the map
+   * @param {object} spot
+   */
   const setNewDestination = (spot) => {
     setDestination(spot);
   };
 
+  /**
+   * Method to show the reading location markers on the map, when they are loaded
+   * @returns null || A list of reading markers
+   */
   const LoadInMarkers = () => {
     if (!locations) {
       return;
@@ -115,6 +148,9 @@ export default function ReadingSpotScreen() {
     ));
   };
 
+  /**
+   * Function to fetch the reading locations from online source
+   */
   const getReadingLocations = async () => {
     try {
       const response = await fetch("https://adriaangiel.github.io/data/mocklocations.json");
@@ -130,6 +166,9 @@ export default function ReadingSpotScreen() {
     }
   };
 
+  /**
+   * Function to get ratings from storage
+   */
   const getRatingsFromStorage = async () => {
     let ratings = await Storage.getData("spot_ratings");
 
@@ -140,11 +179,23 @@ export default function ReadingSpotScreen() {
     setRatings(ratings);
   };
 
-  useEffect(() => {
+  /**
+   * Function to handle showing user spot on the map, navigated from my spots screen.
+   */
+  const showMySpotOnMap = () => {
     if (Route.params && mapRef.current) {
       let spot = Route.params.spot;
       handleSpotPress({ latitude: spot.latitude, longitude: spot.longitude });
     }
+  };
+
+  useEffect(() => {
+    /**
+     * Event listener to check if this screen is in focus
+     */
+    Navigation.addListener("focus", () => {
+      showMySpotOnMap();
+    });
 
     getRatingsFromStorage();
 
@@ -205,6 +256,7 @@ export default function ReadingSpotScreen() {
             userLocationPriority={"low"}
             // onUserLocationChange={(e) => followUser(e.nativeEvent.coordinate)}
             customMapStyle={appTheme ? lightMapStyle : mapStyle}>
+            <LocalTile pathTemplate={`${localTiles}/tiles/{z}/{x}/{y}.png`} tileSize={256} />
             <LoadInMarkers></LoadInMarkers>
 
             <MapViewDirections
